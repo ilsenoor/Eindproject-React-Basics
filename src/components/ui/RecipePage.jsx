@@ -15,6 +15,25 @@ import { data } from "../../utils/data";
 
 export const RecipePage = ({ recipe, clickFn }) => {
   const handleBackClick = () => {};
+  const totalNutrientsCaloriesRounded = Math.round(
+    recipe.totalNutrients.ENERC_KCAL.quantity
+  );
+  const totalNutrientsCarbsRounded = Math.round(
+    recipe.totalNutrients.CHOCDF.quantity
+  );
+  const totalNutrientsProteinRounded = Math.round(
+    recipe.totalNutrients.PROCNT.quantity
+  );
+  const totalNutrientsFatRounded = Math.round(
+    recipe.totalNutrients.FAT.quantity
+  );
+  const totalNutrientsCholesterolRounded = Math.round(
+    recipe.totalNutrients.CHOLE.quantity
+  );
+  const totalNutrientsSodiumRounded = Math.round(
+    recipe.totalNutrients.NA.quantity
+  );
+
   return (
     <Card
       borderRadius="xl"
@@ -101,6 +120,34 @@ export const RecipePage = ({ recipe, clickFn }) => {
           </Box>
           <Box>
             <Text>Total nutrients: </Text>
+            <Text>Calories</Text>
+            <Flex gap={2}>
+              <Tag backgroundColor="grey.100">
+                {totalNutrientsCaloriesRounded}{" "}
+                {recipe.totalNutrients.ENERC_KCAL.unit}
+              </Tag>
+            </Flex>
+            <Text>Carbs</Text>
+            <Tag backgroundColor="grey.100">
+              {totalNutrientsCarbsRounded} {recipe.totalNutrients.CHOCDF.unit}
+            </Tag>
+            <Text>Protein</Text>
+            <Tag backgroundColor="grey.100">
+              {totalNutrientsProteinRounded} {recipe.totalNutrients.PROCNT.unit}
+            </Tag>
+            <Text>Fat</Text>
+            <Tag backgroundColor="grey.100">
+              {totalNutrientsFatRounded} {recipe.totalNutrients.FAT.unit}
+            </Tag>
+            <Text>Cholesterol</Text>
+            <Tag backgroundColor="grey.100">
+              {totalNutrientsCholesterolRounded}{" "}
+              {recipe.totalNutrients.CHOLE.unit}
+            </Tag>
+            <Text>Sodium</Text>
+            <Tag backgroundColor="grey.100">
+              {totalNutrientsSodiumRounded} {recipe.totalNutrients.NA.unit}
+            </Tag>
           </Box>
         </SimpleGrid>
       </CardBody>

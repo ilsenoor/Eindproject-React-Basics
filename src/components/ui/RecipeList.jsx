@@ -1,0 +1,34 @@
+import { RecipeItem } from "./RecipeItem";
+import { data } from "../../utils/data";
+import { SimpleGrid } from "@chakra-ui/react";
+
+export const RecipeList = ({ data }) => {
+  return (
+    <SimpleGrid columns={[1, 2, 3, 4]} spacing={6} padding={5}>
+      {data.hits.map((recipeData, index) => (
+        <RecipeItem key={index} recipe={recipeData.recipe} />
+      ))}
+    </SimpleGrid>
+  );
+};
+
+/*
+import { Flex } from "@chakra-ui/react";
+import { RecipeItem } from "./RecipeItem";
+import { data } from "../../utils/data";
+
+export const Recipelist = ({ recipes }) => {
+  return (
+    <Flex gap={16} w="50%" flexWrap="wrap" justify={"center"}>
+      {recipes.map((recipe) => (
+        <RecipeItem key={recipe.id} recipe={recipe} />
+      ))}
+    </Flex>
+  );
+};*/
+
+/*
+export const Recipelist = ({ recipes, clickFn }) => {
+<RecipeItem key={recipe.id} recipe={recipe} clickFn={clickFn} />
+      ))}
+*/

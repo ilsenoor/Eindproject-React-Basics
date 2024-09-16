@@ -2,15 +2,21 @@ import { RecipePage } from "./components/ui/RecipePage";
 import { RecipeListPage } from "./pages/RecipeListPage";
 import { data } from "./utils/data";
 
+/*
 export const App = () => {
-  const recipe = data.hits[2]?.recipe;
+  const recipe = data.hits[1]?.recipe;
 
   return <RecipePage recipe={recipe} />;
 };
+*/
 
+export const App = () => {
+  return <RecipeListPage />;
+};
 
-/*import { RecipePage } from "./pages/RecipePage";
+/*
 import { RecipeListPage } from "./pages/RecipeListPage";
+import { RecipePage } from "./components/ui/RecipePage";
 import { useState } from "react";
 
 export const App = () => {
@@ -25,4 +31,4 @@ export const App = () => {
       )}
     </div>
   );
-};
+};*/
