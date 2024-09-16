@@ -14,14 +14,8 @@ export const RecipeItem = ({ recipe }) => {
     (label) => label === "Vegetarian" || label === "Vegan"
   );
   return (
-    <Center>
-      <Card
-        borderRadius="xl"
-        w="20em"
-        h="30rem"
-        align="center"
-        backgroundColor="white"
-      >
+    <Center onClick={() => clickFn(recipe)}>
+      <Card borderRadius="xl" w="20em" h="28rem" backgroundColor="white">
         <Image
           src={recipe.image}
           alt="Recipe Image"
@@ -30,13 +24,24 @@ export const RecipeItem = ({ recipe }) => {
           borderTopRadius="xl"
           mb={1}
         />
-        <CardBody>
+        <CardBody
+          display="flex"
+          flexDirection="column"
+          align="center"
+          alignContent="center"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Text>{recipe.mealType}</Text>
           <Text fontSize="xl">{recipe.label}</Text>
           <Flex gap={2}>
-            {filteredHealthLabels.map((label) => (
-              <Tag backgroundColor="purple.100" key={filteredHealthLabels}>
-                {filteredHealthLabels}
+            {filteredHealthLabels.map((label, index) => (
+              <Tag
+                backgroundColor="purple.100"
+                key={`${label}-${index}`}
+                margin="5px"
+              >
+                {label}
               </Tag>
             ))}
           </Flex>
