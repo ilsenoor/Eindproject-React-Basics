@@ -9,12 +9,12 @@ import {
   Tag,
 } from "@chakra-ui/react";
 
-export const RecipeItem = ({ recipe, onClick }) => {
+export const RecipeItem = ({ recipe, clickFn }) => {
   const filteredHealthLabels = recipe.healthLabels.filter(
     (label) => label === "Vegetarian" || label === "Vegan"
   );
   return (
-    <Center onClick={() => onClick(recipe)}>
+    <Center onClick={() => clickFn(recipe)} cursor={"pointer"}>
       <Card borderRadius="xl" w="20em" h="28rem" backgroundColor="white">
         <Image
           src={recipe.image}

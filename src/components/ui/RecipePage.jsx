@@ -36,8 +36,6 @@ export const RecipePage = ({ recipe, clickFn }) => {
   return (
     <Card
       borderRadius="xl"
-      onClick={() => clickFn(recipe)}
-      cursor="pointer"
       width="75%"
       display="flex"
       flexDirection="column"

@@ -9,7 +9,8 @@ export const RecipeList = ({ data, clickFn, setRecipe }) => {
         <RecipeItem
           key={index}
           recipe={recipeData.recipe}
-          onClick={setRecipe}
+          //onClick={setRecipe}
+          clickFn={clickFn}
         />
       ))}
     </SimpleGrid>
