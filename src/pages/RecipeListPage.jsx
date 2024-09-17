@@ -15,8 +15,7 @@ export const RecipeListPage = ({ clickFn }) => {
   });
 
   const handleChange = (event) => {
-    const searchTerm = event.target.value;
-    setSearchField(searchTerm);
+    setSearchField(event.target.value);
   };
 
   return (
@@ -39,73 +38,3 @@ export const RecipeListPage = ({ clickFn }) => {
     </Box>
   );
 };
-
-/*export const RecipeListPage = () => {
-  // You can play around with the console log, but ultimately remove it once you are done
-  console.log(data.hits[0].recipe.label);
-
-  return (
-    <Center h="100vh" flexDir="column">
-      <Heading>Your Recipe App</Heading>
-    </Center>
-  );
-};
-*/
-/*
-export const RecipeListPage = () => {
-  const greeting = "Winc Recipe Checker";
-  const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
-
-  const handleChange = (event) => {
-    const matchedRecepts = data.hits.filter(({ recipe }) => {
-      return recipe.label
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase());
-    });
-    setSelectedRecipeList(matchedRecepts);
-  };
-
-    /*const matchedRecipes = data.hits.filter((hit) => {
-    return hit.recipe.label.toLowerCase().includes(searchField.toLowerCase());
-  });
-  
-
-  return (
-    <Box backgroundColor="blue.100">
-      <Heading
-        padding={15}
-        mb={5}
-        textAlign="center"
-        backgroundColor="blue.100"
-      >
-        {greeting}
-      </Heading>
-      <TextInput placeholder="Search recipes" onChange={handleChange} />
-      <RecipeItem setRecipe={setRecipe} recipes={selectedRecipeList} />
-    </Box>
-  );
-};
-*/
-
-/*
-  <RecipeList clickFn={clickFn} recipes={matchedRecipes} />
-
-
-  const [searchField, setSearchField] = useState("");
-
-  const matchedRecipe = availableRecipes.filter((recipe) => {
-    return recipe.label.toLowerCase().includes(searchField.toLowerCase());
-  });
-
-  const handleChange = (event) => {
-    setSearchField(event.target.value);
-  };
-
-  <Input
-        placeholder="Search recipes"
-        backgroundColor="whiteAlpha.900"
-        width="40%"
-        //onChange={handleChange}
-      />
-
-  */

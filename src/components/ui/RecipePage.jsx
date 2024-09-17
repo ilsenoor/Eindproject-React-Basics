@@ -13,8 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { data } from "../../utils/data";
 
-export const RecipePage = ({ recipe, onClick }) => {
-  const handleBackClick = () => {};
+export const RecipePage = ({ recipe, clickFn }) => {
   const totalNutrientsCaloriesRounded = Math.round(
     recipe.totalNutrients.ENERC_KCAL.quantity
   );
@@ -47,7 +46,7 @@ export const RecipePage = ({ recipe, onClick }) => {
       margin="auto"
     >
       <CardBody>
-        <Button onClick={() => onClick()} variant="ghost" mb={4}>
+        <Button onClick={() => clickFn()} variant="solid" mb={4}>
           Go back
         </Button>
         <Image
@@ -123,7 +122,7 @@ export const RecipePage = ({ recipe, onClick }) => {
             <Text>Calories</Text>
             <Flex gap={2}>
               <Tag backgroundColor="grey.100">
-                {totalNutrientsCaloriesRounded}{" "}
+                {totalNutrientsCaloriesRounded}
                 {recipe.totalNutrients.ENERC_KCAL.unit}
               </Tag>
             </Flex>

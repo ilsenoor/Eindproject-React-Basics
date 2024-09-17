@@ -1,10 +1,11 @@
 import { Input } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 
-export const TextInput = ({ changeFn }) => {
+export const TextInput = ({ changeFn, ...props }) => {
   return (
     <Input
       onChange={changeFn}
+      {...props}
       placeholder="Search recipe"
       color="blackAlpha.900"
       mb={5}
