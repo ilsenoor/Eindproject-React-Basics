@@ -9,6 +9,7 @@ export const RecipeListPage = ({ clickFn }) => {
   const greeting = "Winc Recipe Checker";
 
   const [searchField, setSearchField] = useState("");
+  const [healthLabel, setHealthLabel] = useState("");
 
   const matchedRecipes = data.hits.filter((hit) => {
     return hit.recipe.label.toLowerCase().includes(searchField.toLowerCase());

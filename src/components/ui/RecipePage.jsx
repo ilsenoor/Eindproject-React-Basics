@@ -34,121 +34,128 @@ export const RecipePage = ({ recipe, clickFn }) => {
   );
 
   return (
-    <Card
-      borderRadius="xl"
-      width="75%"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      margin="auto"
+    <Box
+      backgroundColor="blue.500"
+      width="100vw"
+      height="100%"
+      flexDirection="row"
+      flexWrap="wrap"
     >
-      <CardBody>
-        <Button onClick={() => clickFn()} variant="solid" mb={4}>
-          Go back
-        </Button>
-        <Image
-          src={recipe.image}
-          alt="Recipe Image"
+      <Card
+        borderRadius="xl"
+        width="75%"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        margin="auto"
+        border="none"
+      >
+        <CardBody
           borderRadius="xl"
-          height="200px"
-        />
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          direction="row"
-          spacing={4}
-          mt="6"
+          w="5xl"
+          h="fit-content"
+          backgroundColor="white"
         >
-          <Box>
-            <Text fontSize="md">{recipe.mealType}</Text>
-          </Box>
-          <Box>
-            <Text fontSize="2xl">{recipe.label}</Text>
-          </Box>
-          <Box>
-            <Text fontSize="md">Cooking Time: {recipe.totalTime} minutes</Text>
-          </Box>
-          <Box>
-            <Text fontSize="md">Servings: {recipe.yield}</Text>
-          </Box>
-          <Box>
-            <Text fontSize="md">
-              Ingredients:{" "}
-              {Array.isArray(recipe.ingredientLines) ? (
-                <ul>
-                  {recipe.ingredientLines.map((ingredient, index) => (
-                    <li key={index}>{ingredient} </li>
-                  ))}
-                </ul>
-              ) : (
-                recipe.ingredientLines
-              )}
-            </Text>
-          </Box>
-          <Box>
-            <Text>Health labels:</Text>
-            <Flex gap={2}>
+          <Button onClick={() => clickFn()} variant="solid" mb={4}>
+            Go back
+          </Button>
+          <Image
+            src={recipe.image}
+            alt="Recipe Image"
+            borderRadius="xl"
+            height={["15em", "25em"]}
+            width="full"
+            borderTopRadius="xl"
+            mb={5}
+          />
+          <SimpleGrid columns={2} direction="row" spacing={4} mt="6">
+            <Box>
+              <Text fontSize="md">{recipe.mealType}</Text>
+              <Text fontSize="2xl">{recipe.label}</Text>
+              <Text fontSize="md">
+                Total cooking time: {recipe.totalTime} minutes
+              </Text>
+              <Text fontSize="md">Servings: {recipe.yield}</Text>
+              <Text fontSize="md">
+                Ingredients:{" "}
+                {Array.isArray(recipe.ingredientLines) ? (
+                  <ul>
+                    {recipe.ingredientLines.map((ingredient, index) => (
+                      <li key={index}>{ingredient} </li>
+                    ))}
+                  </ul>
+                ) : (
+                  recipe.ingredientLines
+                )}
+              </Text>
+            </Box>
+
+            <Box>
+              <Text>Health labels:</Text>
               {recipe.healthLabels.map((healthlabel) => (
-                <Tag backgroundColor="purple.100" key={healthlabel}>
+                <Tag
+                  backgroundColor="purple.100"
+                  key={healthlabel}
+                  margin="5px"
+                >
                   {healthlabel}
                 </Tag>
               ))}
-            </Flex>
-          </Box>
-          <Box>
-            <Text>Diet:</Text>
-            <Flex gap={2}>
-              {recipe.dietLabels.map((dietlabel) => (
-                <Tag backgroundColor="green.100" key={dietlabel}>
-                  {dietlabel}
-                </Tag>
-              ))}
-            </Flex>
-          </Box>
-          <Box>
-            <Text>Cautions:</Text>
-            <Flex gap={2}>
-              {recipe.cautions.map((caution) => (
-                <Tag backgroundColor="red.100" key={caution}>
-                  {caution}
-                </Tag>
-              ))}
-            </Flex>
-          </Box>
-          <Box>
-            <Text>Total nutrients: </Text>
-            <Text>Calories</Text>
-            <Flex gap={2}>
-              <Tag backgroundColor="grey.100">
-                {totalNutrientsCaloriesRounded}
+              <Text>Diet:</Text>
+              <Flex gap={2}>
+                {recipe.dietLabels.map((dietlabel) => (
+                  <Tag backgroundColor="green.100" key={dietlabel}>
+                    {dietlabel}
+                  </Tag>
+                ))}
+              </Flex>
+              <Text>Cautions:</Text>
+              <Flex gap={2}>
+                {recipe.cautions.map((caution) => (
+                  <Tag backgroundColor="red.100" key={caution}>
+                    {caution}
+                  </Tag>
+                ))}
+              </Flex>
+
+              <Text>Total nutrients: </Text>
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Calories &nbsp;</Text>
+                {totalNutrientsCaloriesRounded}{" "}
                 {recipe.totalNutrients.ENERC_KCAL.unit}
               </Tag>
-            </Flex>
-            <Text>Carbs</Text>
-            <Tag backgroundColor="grey.100">
-              {totalNutrientsCarbsRounded} {recipe.totalNutrients.CHOCDF.unit}
-            </Tag>
-            <Text>Protein</Text>
-            <Tag backgroundColor="grey.100">
-              {totalNutrientsProteinRounded} {recipe.totalNutrients.PROCNT.unit}
-            </Tag>
-            <Text>Fat</Text>
-            <Tag backgroundColor="grey.100">
-              {totalNutrientsFatRounded} {recipe.totalNutrients.FAT.unit}
-            </Tag>
-            <Text>Cholesterol</Text>
-            <Tag backgroundColor="grey.100">
-              {totalNutrientsCholesterolRounded}{" "}
-              {recipe.totalNutrients.CHOLE.unit}
-            </Tag>
-            <Text>Sodium</Text>
-            <Tag backgroundColor="grey.100">
-              {totalNutrientsSodiumRounded} {recipe.totalNutrients.NA.unit}
-            </Tag>
-          </Box>
-        </SimpleGrid>
-      </CardBody>
-    </Card>
+
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Carbs &nbsp;</Text>
+                {totalNutrientsCarbsRounded} {recipe.totalNutrients.CHOCDF.unit}
+              </Tag>
+
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Protein &nbsp;</Text>
+                {totalNutrientsProteinRounded}{" "}
+                {recipe.totalNutrients.PROCNT.unit}
+              </Tag>
+
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Fat &nbsp;</Text> {totalNutrientsFatRounded}{" "}
+                {recipe.totalNutrients.FAT.unit}
+              </Tag>
+
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Cholesterol &nbsp;</Text>{" "}
+                {totalNutrientsCholesterolRounded}{" "}
+                {recipe.totalNutrients.CHOLE.unit}
+              </Tag>
+              <Tag backgroundColor="grey.100" margin="5px">
+                <Text>Sodium &nbsp;</Text> {totalNutrientsSodiumRounded}{" "}
+                {recipe.totalNutrients.NA.unit}
+              </Tag>
+            </Box>
+          </SimpleGrid>
+        </CardBody>
+      </Card>
+    </Box>
   );
 };
 
