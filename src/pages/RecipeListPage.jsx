@@ -23,8 +23,12 @@ export const RecipeListPage = ({ clickFn }) => {
     <Box
       backgroundColor="blue.500"
       width="100vw"
-      height="100%"
-      textAlign="center"
+      minHeight="100vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-start"
+      alignItems="center"
+      padding="20px"
     >
       <Heading
         padding={15}

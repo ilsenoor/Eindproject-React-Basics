@@ -40,10 +40,12 @@ export const RecipePage = ({ recipe, clickFn }) => {
       height="100%"
       flexDirection="row"
       flexWrap="wrap"
+      alignItems="center"
+      justifyContent="center"
     >
       <Card
         borderRadius="xl"
-        width="75%"
+        width={{ base: "90%", lg: "65%" }}
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -56,6 +58,7 @@ export const RecipePage = ({ recipe, clickFn }) => {
           w="5xl"
           h="fit-content"
           backgroundColor="white"
+          padding={{ base: 4, lg: 6 }}
         >
           <Button onClick={() => clickFn()} variant="solid" mb={4}>
             Go back
@@ -65,11 +68,11 @@ export const RecipePage = ({ recipe, clickFn }) => {
             alt="Recipe Image"
             borderRadius="xl"
             height={["15em", "25em"]}
-            width="full"
+            width={{ base: "75%", lg: "100%" }}
             borderTopRadius="xl"
             mb={5}
           />
-          <SimpleGrid columns={2} direction="row" spacing={4} mt="6">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} mt="6">
             <Box>
               <Text fontSize="md">{recipe.mealType}</Text>
               <Text fontSize="2xl">{recipe.label}</Text>

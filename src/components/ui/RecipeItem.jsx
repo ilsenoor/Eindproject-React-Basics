@@ -15,7 +15,13 @@ export const RecipeItem = ({ recipe, clickFn }) => {
   );
   return (
     <Center onClick={() => clickFn(recipe)} cursor={"pointer"}>
-      <Card borderRadius="xl" w="20em" h="28rem" backgroundColor="white">
+      <Card
+        borderRadius="xl"
+        w="20em"
+        h="28rem"
+        backgroundColor="white"
+        margin="10px"
+      >
         <Image
           src={recipe.image}
           alt="Recipe Image"
