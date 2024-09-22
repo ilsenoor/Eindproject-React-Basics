@@ -45,7 +45,6 @@ export const RecipePage = ({ recipe, clickFn }) => {
     >
       <Card
         borderRadius="xl"
-        width={{ base: "90%", lg: "65%" }}
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -55,8 +54,8 @@ export const RecipePage = ({ recipe, clickFn }) => {
       >
         <CardBody
           borderRadius="xl"
-          w="5xl"
-          h="fit-content"
+          width={{ base: "90%", lg: "65%" }}
+          height="fit-content"
           backgroundColor="white"
           padding={{ base: 4, lg: 6 }}
         >
@@ -68,7 +67,7 @@ export const RecipePage = ({ recipe, clickFn }) => {
             alt="Recipe Image"
             borderRadius="xl"
             height={["15em", "25em"]}
-            width={{ base: "75%", lg: "100%" }}
+            width="100vw"
             borderTopRadius="xl"
             mb={5}
           />
