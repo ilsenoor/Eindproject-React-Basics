@@ -54,7 +54,7 @@ export const RecipePage = ({ recipe, clickFn }) => {
       >
         <CardBody
           borderRadius="xl"
-          width={{ base: "90%", lg: "65%" }}
+          width={{ base: "90%", lg: "70%" }}
           height="fit-content"
           backgroundColor="white"
           padding={{ base: 4, lg: 6 }}
