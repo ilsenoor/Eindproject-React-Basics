@@ -29,6 +29,7 @@ export const RecipeItem = ({ recipe, clickFn }) => {
           width="full"
           borderTopRadius="xl"
           mb={1}
+          objectFit="cover"
         />
         <CardBody
           display="flex"

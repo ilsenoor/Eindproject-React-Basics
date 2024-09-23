@@ -70,16 +70,21 @@ export const RecipePage = ({ recipe, clickFn }) => {
             width="100vw"
             borderTopRadius="xl"
             mb={5}
+            objectFit="cover"
           />
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} mt="6">
             <Box>
-              <Text fontSize="md">{recipe.mealType}</Text>
-              <Text fontSize="2xl">{recipe.label}</Text>
-              <Text fontSize="md">
+              <Text fontSize="md" margin="5px">
+                {recipe.mealType}
+              </Text>
+              <Text fontSize="2xl" margin="5px">
+                {recipe.label}
+              </Text>
+              <Text fontSize="md" margin="5px">
                 Total cooking time: {recipe.totalTime} minutes
               </Text>
               <Text fontSize="md">Servings: {recipe.yield}</Text>
-              <Text fontSize="md">
+              <Text fontSize="md" margin="5px">
                 Ingredients:{" "}
                 {Array.isArray(recipe.ingredientLines) ? (
                   <ul>
@@ -160,13 +165,3 @@ export const RecipePage = ({ recipe, clickFn }) => {
     </Box>
   );
 };
-
-/*<Flex gap={2}>
-            {recipe.healthLabels.map((healthlabel) => (
-              <Tag key={healthlabel}>{healthlabel}</Tag>
-            ))}
-          </Flex>*/
-
-/*
-
-    */
