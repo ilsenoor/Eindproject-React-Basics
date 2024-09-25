@@ -4,12 +4,12 @@ import { RecipeList } from "../components/ui/RecipeList";
 import { RecipeItem } from "../components/ui/RecipeItem";
 import { useState } from "react";
 import { TextInput } from "../components/ui/TextInput";
+import { Text } from "@chakra-ui/react";
 
 export const RecipeListPage = ({ clickFn }) => {
   const greeting = "Winc Recipe Checker";
 
   const [searchField, setSearchField] = useState("");
-  const [healthLabel, setHealthLabel] = useState("");
 
   const matchedRecipes = data.hits.filter((hit) => {
     return hit.recipe.label.toLowerCase().includes(searchField.toLowerCase());
@@ -39,7 +39,14 @@ export const RecipeListPage = ({ clickFn }) => {
         {greeting}
       </Heading>
       <TextInput onChange={handleChange} />
-      <RecipeList clickFn={clickFn} data={matchedRecipes} />
+
+      {matchedRecipes.length === 0 ? (
+        <Text fontSize="xl" color="white" mt={10}>
+          Recipe not found
+        </Text>
+      ) : (
+        <RecipeList clickFn={clickFn} data={matchedRecipes} />
+      )}
     </Box>
   );
 };

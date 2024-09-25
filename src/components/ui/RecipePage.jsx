@@ -11,6 +11,9 @@ import {
   SimpleGrid,
   Button,
 } from "@chakra-ui/react";
+
+import { useEffect } from "react";
+
 import { data } from "../../utils/data";
 
 export const RecipePage = ({ recipe, clickFn }) => {
@@ -32,6 +35,10 @@ export const RecipePage = ({ recipe, clickFn }) => {
   const totalNutrientsSodiumRounded = Math.round(
     recipe.totalNutrients.NA.quantity
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Box
@@ -85,17 +92,17 @@ export const RecipePage = ({ recipe, clickFn }) => {
               </Text>
               <Text fontSize="md">Servings: {recipe.yield}</Text>
               <Text fontSize="md" margin="5px">
-                Ingredients:{" "}
-                {Array.isArray(recipe.ingredientLines) ? (
-                  <ul>
-                    {recipe.ingredientLines.map((ingredient, index) => (
-                      <li key={index}>{ingredient} </li>
-                    ))}
-                  </ul>
-                ) : (
-                  recipe.ingredientLines
-                )}
+                Ingredients:
               </Text>
+              {Array.isArray(recipe.ingredientLines) ? (
+                <ul>
+                  {recipe.ingredientLines.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ul>
+              ) : (
+                <Text fontSize="md">{recipe.ingredientLines}</Text>
+              )}
             </Box>
 
             <Box>

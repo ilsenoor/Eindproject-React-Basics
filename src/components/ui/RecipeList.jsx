@@ -3,7 +3,7 @@ import { data } from "../../utils/data";
 import { SimpleGrid } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 
-export const RecipeList = ({ data, clickFn, setRecipe }) => {
+export const RecipeList = ({ data, clickFn }) => {
   return (
     <Center flexDir="row" flexWrap="wrap" margin="50px">
       {data.map((recipeData, index) => (
