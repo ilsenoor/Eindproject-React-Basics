@@ -7,7 +7,7 @@ import { TextInput } from "../components/ui/TextInput";
 import { Text } from "@chakra-ui/react";
 
 export const RecipeListPage = ({ clickFn }) => {
-  const greeting = "Winc Recipe Checker!!!";
+  const greeting = "Winc Recipe Checker";
 
   const [searchField, setSearchField] = useState("");
 
