@@ -8,7 +8,7 @@ export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
 
   return (
-    <Center backgroundColor="blue.500" minHeight="100vh">
+    <Center backgroundColor="red.500" minHeight="100vh">
       {selectedRecipe ? (
         <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe} />
       ) : (
